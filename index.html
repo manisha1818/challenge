@@ -1,357 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Spell Correct — Mini Game</title>
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta charset="UTF-8">
+  <title>Skill Match App</title>
   <style>
-    :root{
-      --bg: #0f1720;
-      --card: #0b1a23;
-      --accent: #6ee7b7;
-      --accent-2: #7dd3fc;
-      --muted: #a8b3b8;
-      --danger: #ff7b7b;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
-      background: linear-gradient(180deg,#071017 0%,#0b1720 100%);
-      color: #e6f2ef;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      min-height:100vh;
-      padding:20px;
-    }
-    .container{
-      width:760px;
-      max-width:100%;
-      background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
-      border-radius:12px;
-      padding:20px;
-      box-shadow: 0 10px 30px rgba(2,6,23,0.7);
-      display:grid;
-      grid-template-columns: 1fr 300px;
-      gap:16px;
-      align-items:start;
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f7fa;
+      color: #333;
     }
 
-    .left {
-      padding:18px;
-      border-radius:10px;
-      background: rgba(255,255,255,0.02);
-      min-height:280px;
+    header {
+      background: #4a90e2;
+      color: #fff;
+      padding: 15px;
+      text-align: center;
+      font-size: 22px;
+      font-weight: bold;
     }
 
-    h1{ margin:0 0 6px 0; font-size:20px; }
-    p.lead { margin:0 0 14px 0; color:var(--muted); font-size:14px; }
-
-    .scramble {
-      margin:18px 0;
-      font-size:38px;
-      letter-spacing:6px;
-      font-weight:700;
-      text-align:center;
-      padding:18px;
-      border-radius:10px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
-      user-select:none;
+    .container {
+      width: 90%;
+      max-width: 600px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 25px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
     }
 
-    .inputRow {
-      display:flex;
-      gap:8px;
-      align-items:center;
-      justify-content:center;
-      margin-top:8px;
-    }
-    input[type="text"]{
-      flex:1;
-      padding:12px 14px;
-      border-radius:10px;
-      border:1px solid rgba(255,255,255,0.04);
-      background:transparent;
-      color:inherit;
-      font-size:16px;
-      outline:none;
-    }
-    button {
-      padding:10px 14px;
-      border-radius:10px;
-      border:none;
-      background:var(--accent);
-      color:#04241a;
-      font-weight:700;
-      cursor:pointer;
-    }
-    button.secondary {
-      background:transparent;
-      color:var(--accent);
-      border:1px solid rgba(255,255,255,0.04);
-      font-weight:600;
-    }
-    .small { padding:8px 10px; font-size:14px; border-radius:8px; }
-    .controls { margin-top:12px; display:flex; gap:8px; justify-content:center; flex-wrap:wrap; }
-
-    .right {
-      padding:12px;
-      border-radius:10px;
-      background: rgba(255,255,255,0.02);
-      min-height:280px;
-      display:flex;
-      flex-direction:column;
-      gap:12px;
-    }
-    .stat {
-      padding:12px;
-      border-radius:8px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.005));
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:8px;
-    }
-    .stat strong { font-size:18px; }
-    .message { text-align:center; color:var(--muted); margin-top:8px; font-size:14px; min-height:22px; }
-
-    .hintBox{
-      padding:10px;
-      border-radius:8px;
-      background:rgba(255,255,255,0.01);
-      color:var(--accent-2);
-      font-size:14px;
-      text-align:center;
+    h2 {
+      color: #4a90e2;
+      margin-bottom: 15px;
     }
 
-    .footer { text-align:center; font-size:13px; color:var(--muted); margin-top:6px; }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
 
-    @media (max-width:820px){
-      .container{ grid-template-columns: 1fr; }
-      .scramble{ font-size:30px; letter-spacing:4px; }
+    input[type="text"],
+    input[type="email"],
+    input[type="file"],
+    select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      outline: none;
+    }
+
+    .options {
+      margin: 15px 0;
+    }
+
+    .options input {
+      margin-right: 10px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #4a90e2;
+      color: #fff;
+      padding: 10px 18px;
+      border: none;
+      border-radius: 6px;
+      margin-top: 15px;
+      cursor: pointer;
+      transition: 0.3s;
+      text-decoration: none;
+    }
+
+    .btn:hover {
+      background: #357ab8;
+    }
+
+    footer {
+      text-align: center;
+      padding: 10px;
+      margin-top: 30px;
+      font-size: 14px;
+      color: #666;
     }
   </style>
 </head>
 <body>
-  <div class="container" role="application" aria-label="Spell Correct Game">
-    <div class="left" id="gameArea">
-      <h1>Spell Correct</h1>
-      <p class="lead">Unscramble the letters and type the correctly spelled word. Use Hint or Skip if stuck. Press Enter to submit.</p>
+  <header>
+    Skill Match Web Application
+  </header>
 
-      <div id="scramble" class="scramble" aria-live="polite">— — — —</div>
+  <div class="container">
+    <h2>Register</h2>
+    <form>
+      <label for="name">Full Name</label>
+      <input type="text" id="name" placeholder="Enter your full name" required>
 
-      <div class="inputRow">
-        <input id="answerInput" type="text" placeholder="Type the correct word" autocomplete="off" aria-label="Your answer">
-        <button id="submitBtn">Submit</button>
+      <label for="email">Email</label>
+      <input type="email" id="email" placeholder="Enter your email" required>
+
+      <div class="options">
+        <p><strong>Select Option:</strong></p>
+        <input type="radio" id="team" name="choice">
+        <label for="team">Create a Team</label><br>
+        <input type="radio" id="job" name="choice">
+        <label for="job">Job Shortlist</label>
       </div>
 
-      <div class="controls" role="group" aria-label="Game controls">
-        <button id="hintBtn" class="secondary small">Hint (first letter)</button>
-        <button id="skipBtn" class="secondary small">Skip</button>
-        <button id="newBtn" class="secondary small">New Word</button>
-      </div>
+      <label for="resume">Upload Resume</label>
+      <input type="file" id="resume">
 
-      <div class="message" id="message" aria-live="polite">Good luck!</div>
-    </div>
-
-    <aside class="right" aria-hidden="false">
-      <div class="stat"><div>Score</div><strong id="score">0</strong></div>
-      <div class="stat"><div>Streak</div><strong id="streak">0</strong></div>
-      <div class="stat"><div>Lives</div><strong id="lives">3</strong></div>
-
-      <div class="hintBox" id="hintBox">Hints will appear here when used.</div>
-
-      <div class="stat">
-        <div>Difficulty</div>
-        <div>
-          <select id="difficulty" aria-label="Difficulty">
-            <option value="easy">Easy</option>
-            <option value="normal" selected>Normal</option>
-            <option value="hard">Hard</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="footer">Tip: smaller words appear on Easy. Hard mixes longer/rare words.</div>
-    </aside>
+      <button class="btn" type="submit">Submit</button>
+    </form>
   </div>
 
-  <script>
-    // Word lists (simple, extend as you like)
-    const WORDS = {
-      easy: ["apple","house","water","pencil","light","chair","mouse","river","green","happy"],
-      normal: ["window","market","garden","object","special","planet","teacher","travel","picture","battery"],
-      hard: ["accommodate","conscience","rhythm","consequence","exaggerate","conscientious","miscellaneous","pronunciation","embarrass","ambiguous"]
-    };
-
-    // Game state
-    let currentWord = "";
-    let scrambled = "";
-    let score = 0;
-    let streak = 0;
-    let lives = 3;
-
-    // DOM
-    const scrambleEl = document.getElementById('scramble');
-    const input = document.getElementById('answerInput');
-    const submitBtn = document.getElementById('submitBtn');
-    const hintBtn = document.getElementById('hintBtn');
-    const skipBtn = document.getElementById('skipBtn');
-    const newBtn = document.getElementById('newBtn');
-    const difficulty = document.getElementById('difficulty');
-    const scoreEl = document.getElementById('score');
-    const streakEl = document.getElementById('streak');
-    const livesEl = document.getElementById('lives');
-    const messageEl = document.getElementById('message');
-    const hintBox = document.getElementById('hintBox');
-
-    // Util: shuffle letters (Fisher–Yates)
-    function shuffleString(s){
-      const arr = s.split('');
-      for(let i = arr.length - 1; i > 0; i--){
-        const j = Math.floor(Math.random() * (i + 1));
-        [arr[i], arr[j]] = [arr[j], arr[i]];
-      }
-      return arr.join('');
-    }
-
-    // Create scrambled word (avoid unchanged scramble)
-    function makeScrambled(word){
-      if(word.length <= 2) return word;
-      let s = shuffleString(word);
-      let attempts = 0;
-      while(s.toLowerCase() === word.toLowerCase() && attempts < 30){
-        s = shuffleString(word);
-        attempts++;
-      }
-      // For readability, add spacing between letters
-      return s.split('').join(' ');
-    }
-
-    // Pick word based on difficulty
-    function pickWord(){
-      const level = difficulty.value || 'normal';
-      const list = WORDS[level] || WORDS.normal;
-      const w = list[Math.floor(Math.random() * list.length)];
-      return w;
-    }
-
-    // Start new round
-    function newRound(preserveInput=false){
-      currentWord = pickWord();
-      scrambled = makeScrambled(currentWord);
-      scrambleEl.textContent = scrambled;
-      if(!preserveInput) input.value = '';
-      input.focus();
-      hintBox.textContent = 'Hints will appear here when used.';
-      messageEl.textContent = 'Type the correctly spelled word and submit.';
-      // small visual cue
-      scrambleEl.style.opacity = '1';
-    }
-
-    // Check answer
-    function checkAnswer(){
-      const ans = input.value.trim().toLowerCase();
-      if(!ans){
-        messageEl.textContent = 'Please type an answer.';
-        return;
-      }
-      if(ans === currentWord.toLowerCase()){
-        // correct
-        score += 10 + Math.min(currentWord.length * 2, 20);
-        streak += 1;
-        messageEl.textContent = '✅ Correct! Great job.';
-        // small positive flash
-        scrambleEl.style.opacity = '0.6';
-        setTimeout(()=> scrambleEl.style.opacity = '1', 150);
-      } else {
-        // incorrect
-        streak = 0;
-        lives -= 1;
-        messageEl.textContent = `❌ Incorrect. The correct word was "${currentWord}".`;
-        // brief reveal
-        scrambleEl.textContent = currentWord.split('').join(' ');
-        // reduce score slightly
-        score = Math.max(0, score - 5);
-        if(lives <= 0){
-          // game over
-          messageEl.textContent = `Game Over! Final score: ${score}. Press New Word to restart.`;
-          // disable input & buttons except New Word
-          input.disabled = true;
-          submitBtn.disabled = true;
-          hintBtn.disabled = true;
-          skipBtn.disabled = true;
-          difficulty.disabled = false; // allow changing difficulty
-        }
-      }
-      updateUI();
-      // auto new round if still alive after short delay
-      if(lives > 0){
-        setTimeout(()=> newRound(true), 900);
-      }
-    }
-
-    // Hint: show first letter
-    function useHint(){
-      if(lives <= 0) return;
-      hintBox.textContent = `First letter: "${currentWord.charAt(0)}" (no penalty)`;
-      input.focus();
-    }
-
-    // Skip: show correct word, small penalty
-    function skipWord(){
-      if(lives <= 0) return;
-      messageEl.textContent = `Skipped. The correct word was "${currentWord}".`;
-      score = Math.max(0, score - 3);
-      streak = 0;
-      updateUI();
-      setTimeout(()=> newRound(false), 700);
-    }
-
-    // Reset / new game (not full reset)
-    function resetGame(){
-      score = 0; streak = 0; lives = 3;
-      input.disabled = false;
-      submitBtn.disabled = false;
-      hintBtn.disabled = false;
-      skipBtn.disabled = false;
-      difficulty.disabled = false;
-      updateUI();
-      newRound(false);
-    }
-
-    // UI update
-    function updateUI(){
-      scoreEl.textContent = score;
-      streakEl.textContent = streak;
-      livesEl.textContent = lives;
-    }
-
-    // Events
-    submitBtn.addEventListener('click', checkAnswer);
-    hintBtn.addEventListener('click', useHint);
-    skipBtn.addEventListener('click', skipWord);
-    newBtn.addEventListener('click', resetGame);
-
-    // Enter key submits
-    input.addEventListener('keydown', (e)=>{
-      if(e.key === 'Enter') {
-        e.preventDefault();
-        checkAnswer();
-      }
-    });
-
-    // Difficulty change resets the game
-    difficulty.addEventListener('change', ()=> {
-      resetGame();
-    });
-
-    // Start the first round
-    resetGame();
-
-    // Accessibility: focus the input on page load
-    window.addEventListener('load', ()=> input.focus());
-  </script>
+  <footer>
+    &copy; 2025 Skill Match | Demo Version (HTML & CSS Only)
+  </footer>
 </body>
 </html>

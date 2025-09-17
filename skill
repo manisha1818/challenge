@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Skill Match App</title>
+</head>
+<body>
+  <h1>About My Application</h1>
+  <p>
+    The Skill Match Application helps users by matching their skills with the right opportunities. 
+    First, users register and upload their resumes. Then, they can choose between creating a team 
+    or applying for job shortlisting. The system automatically compares resumes, finds the best 
+    skill matches, and provides results as either suitable teams or job opportunities. 
+    This makes the process faster, smarter, and easier for students and job seekers.
+  </p>
+</body>
+</html>
